@@ -1,0 +1,1 @@
+import ('./bootstrap.js') // gives webpack more time make sore he can load all dependencies
