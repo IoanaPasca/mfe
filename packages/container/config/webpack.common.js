@@ -1,3 +1,7 @@
+
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const TerserPlugin = require("terser-webpack-plugin")
+
 module.exports = {
   module: {
     rules: [
@@ -13,6 +17,16 @@ module.exports = {
         }
       }
        //to tell webpack start to process some projesct we import in our projects (transform es6  to es5)
-    ]
-  }
+    ],
+ 
+  },
+  plugins:[
+    new HtmlWebpackPlugin({
+     template: './public/index.html'
+   })
+  ],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
 }

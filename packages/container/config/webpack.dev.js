@@ -1,5 +1,4 @@
 const { merge } = require('webpack-merge') // used to merge together two webpack
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
 const packageJason = require('../package.json')
 const commonConfig = require('./webpack.common');
@@ -20,10 +19,6 @@ const devConfig = {
       },
       shared:packageJason.dependencies
     }),
-
-    new HtmlWebpackPlugin({
-      template: './public/index.html'
-    })
   ]
 }
 
