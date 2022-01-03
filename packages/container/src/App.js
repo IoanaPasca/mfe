@@ -31,7 +31,7 @@ export default () => {
           <Suspense fallback={<Progress/>}>
           <Switch>
             <Route path="/auth"> <AuthLazy onSignIn={() => setIsSignedIn(true)} /> </Route>
-            <Route  path="/dashboard"> {!isSignedIn && <Redirect to="/"/>} <DashboardLazy/></Route>
+            <Route path="/dashboard"> {!isSignedIn && <Redirect to="/"/>} <DashboardLazy/></Route>
             <Route path="/" component={MarketingLazy} />
             </Switch>
           </Suspense>
