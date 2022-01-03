@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn(props) {
+export default function SignIn({onSignIn}) {
   const classes = useStyles();
 
   return (

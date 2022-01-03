@@ -5,7 +5,7 @@ import { createMemoryHistory, createBrowserHistory} from "history";
 import App from "./App";
 
 //Mount function to start up the app
-export const mount = (el, { onNavigate, defaultHistory, initialPath, onSingIn }) => {
+export const mount = (el, { onNavigate, defaultHistory, initialPath, onSignIn }) => {
   const history = defaultHistory || createMemoryHistory({
     initialEntries:[initialPath]
   });
@@ -14,7 +14,7 @@ export const mount = (el, { onNavigate, defaultHistory, initialPath, onSingIn })
     history.listen(onNavigate)
   }
 
-  ReactDOM.render(<App history={history} onSingIn={onSingIn} />, el)
+  ReactDOM.render(<App history={history} onSignIn={onSignIn} />, el)
 
   return  {
     onParentNavigate({pathname : nextPathname}) {
