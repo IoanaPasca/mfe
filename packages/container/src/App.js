@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Progress from "./components/Progress"
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 import { createBrowserHistory } from 'history';
-
+import Next from "./components/NextApp"
 // mount function take a reference to html element is nopt a react component
 
 const MarketingLazy = lazy(() => import('./components/MarketingApp'))
@@ -16,6 +16,10 @@ const generateClassName= createGenerateClassName({productionPrefix: "co"})
 
 export default () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
+
+  useEffect(() => {
+ localStorage.setItem("test", "testtest")
+  },[])
   
   useEffect(() => {
     if (isSignedIn) {
@@ -31,7 +35,8 @@ export default () => {
           <Suspense fallback={<Progress/>}>
           <Switch>
             <Route path="/auth"> <AuthLazy onSignIn={() => setIsSignedIn(true)} /> </Route>
-            <Route path="/dashboard"> {!isSignedIn && <Redirect to="/"/>} <DashboardLazy/></Route>
+              <Route path="/dashboard"> {!isSignedIn && <Redirect to="/" />} <DashboardLazy /></Route>
+              <Route path="/next"><Next/> </Route>
             <Route path="/" component={MarketingLazy} />
             </Switch>
           </Suspense>

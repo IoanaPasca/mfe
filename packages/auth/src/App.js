@@ -1,5 +1,5 @@
 import React from "react";
-import { SWitch, Route, BrowserRouter, Switch, Router} from 'react-router-dom';
+import { SWitch, Route, Switch, Router} from 'react-router-dom';
 
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
  import SingIn from "./components/Signin";
@@ -10,7 +10,7 @@ const generateClassName = createGenerateClassName({
 })
 
 
-export default ({history, onSignIn}) => {
+export default ({ history, onSignIn }) => {
   return (
     <div>
       <StylesProvider generateClassName={generateClassName}>
